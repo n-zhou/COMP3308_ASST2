@@ -1,7 +1,11 @@
+/**
+* @author nzho8446
+*/
 import java.util.Scanner;
 import java.io.File;
 
 public class MyClassifier {
+
 
 
   /**
@@ -19,6 +23,8 @@ public class MyClassifier {
   public static void main(String[] args) {
     if(args.length != 3)
       return;
+    String trainingFileName = args[0];
+    String testFileName = args[1];
     switch(args[2]) {
       case "NB":
       //naive bayes algo
