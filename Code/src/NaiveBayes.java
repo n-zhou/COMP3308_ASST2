@@ -12,7 +12,7 @@ public class NaiveBayes {
     private int yes; // number of yes outcomes
     private int no; // number of no outcomes
 
-    /** XXX
+    /**
      * This constuctor initialises the member variables to their default values.
      */
     public NaiveBayes() {
@@ -23,7 +23,7 @@ public class NaiveBayes {
         no = 0;
     }
 
-    /** XXX
+    /**
      * This method reads and processes the training file. The probability of the p(no)
      * and p(yes) is calculated in this method.
      * @param trainingFile This should be args[0] from the main method. This parameter
@@ -58,7 +58,7 @@ public class NaiveBayes {
         }
     }
 
-    /** XXX
+    /**
      * Finds the mean of a given attribute and certain outcome.
      * @param  index   index of the attribute we want to find the mean of.
      * The values must be between [0, 7]
@@ -78,7 +78,7 @@ public class NaiveBayes {
     }
 
 
-    /** XXX
+    /**
      * This method is used to find the standard deviation of a particular attribute,
      * given an outcome.
      * @param  index   index of the attribute we want to find the standard deviation of.
@@ -99,7 +99,7 @@ public class NaiveBayes {
         return (outcome) ? Math.sqrt(i / yes) : Math.sqrt(i / no);
     }
 
-    /** XXX
+    /**
      * The method processes the data given in the file, whose name is specified
      * by the parameter. It will attempt to predict whether the class outcome is
      * yes or no and prints it to standard output.
@@ -129,7 +129,7 @@ public class NaiveBayes {
     }
 
 
-    /** XXX
+    /**
      * This method applies the probability distribution function to the values
      * x, u, and sigma.
      * @param  x     The value we are applying the function to.
@@ -143,7 +143,7 @@ public class NaiveBayes {
                 Math.exp(-(Math.pow((x - u), 2) / (2 * Math.pow(sigma, 2))));
     }
 
-    /** XXX
+    /**
      * This method calculates the average of the values at a given index.
      * @param  index Is the index of the values we are using for to find the mean.
      * @return       The mean of the data in the training set.
@@ -156,7 +156,7 @@ public class NaiveBayes {
         return i / data.size();
     }
 
-    /** XXX
+    /**
      * calculates the standard deviation of the given index.
      * @param  index The index of values for which we want to find the standard deviation.
      * must be between [0, 7]. Otherwise undefined behaviour results.

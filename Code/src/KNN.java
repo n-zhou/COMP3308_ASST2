@@ -10,11 +10,19 @@ public class KNN {
     private ArrayList<Data> data;
     private int k;
 
+    /**
+     * initialises the class to search the k nearest neighbours.
+     * @param k The maximum number of neighbours we are going to search.
+     */
     public KNN(int k) {
         data = new ArrayList<>();
         this.k = k;
     }
 
+    /**
+     * This method reads in the training file and processes the data.
+     * @param train train is the filename of the training file.
+     */
     public void train(String train) {
         try {
             Scanner sc = new Scanner(new File(train));
@@ -37,6 +45,11 @@ public class KNN {
         }
     }
 
+    /**
+     * the test file is processed and the result yes/no is printed to standard output.
+     * @param test is the filename of the testing file the knn algorithm is attempting
+     * to predict the value of.
+     */
     public void run(String test) {
         try {
             Scanner sc = new Scanner(new File(test));
@@ -54,6 +67,12 @@ public class KNN {
         }
     }
 
+    /**
+     * The method evaluates the nearest neighbours of v and returns yes/no
+     * depending on the concensus reached.
+     * @param  v A double array of length 8 that contains the values of the attributes we need.
+     * @return   yes if the number of yes' is greater than the number of no's.
+     */
     public String find(double[] v) {
         @SuppressWarnings("unchecked") ArrayList<Data> nearestNeighbours = (ArrayList) data.clone();
         nearestNeighbours.sort(new Comparator<Data>() {
