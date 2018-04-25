@@ -27,6 +27,12 @@ public class MyClassifier {
         nb.run(test);
     }
 
+    private static void KNN(String train, String test, int k) {
+        KNN knn = new KNN(k);
+        knn.train(train);
+        knn.run(test);
+    }
+
     /**
     * The main function reads in the arguments of from the command line.
     * @param args There are 3 arguments expected. args[0] is the training file, args[1] is the test file args[2] is the algorithm to be run.
@@ -40,8 +46,8 @@ public class MyClassifier {
                 NaiveBayes(args[0], args[1]);
                 break;
             default:
-                //k nearest neighbour algo
-                int k = args[2].charAt(0);
+                int k = args[2].charAt(0) - '0';
+                KNN(args[0], args[1], k);
         }
     }
 
