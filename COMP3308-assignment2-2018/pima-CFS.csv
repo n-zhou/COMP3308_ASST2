@@ -1,0 +1,32 @@
+=== Run information ===
+
+Evaluator:    weka.attributeSelection.CfsSubsetEval -P 1 -E 1
+Search:       weka.attributeSelection.BestFirst -D 1 -N 5
+Relation:     pima
+Instances:    767
+Attributes:   9
+              1. Number of times pregnant
+              2. Plasma glucose concentration a 2 hours in an oral glucose tolerance test
+              3. Diastolic blood pressure (mm Hg)
+              4. Triceps skin fold thickness (mm)
+              5. 2-Hour serum insulin (mu U/ml)
+              6. Body mass index (weight in kg/(height in m)^2)
+              7. Diabetes pedigree function
+              8. Age (years)
+              class
+Evaluation mode:    10-fold cross-validation
+
+
+
+=== Attribute selection 10 fold cross-validation (stratified), seed: 1 ===
+
+number of folds (%)  attribute
+           0(  0 %)    1 1. Number of times pregnant
+          10(100 %)    2 2. Plasma glucose concentration a 2 hours in an oral glucose tolerance test
+           0(  0 %)    3 3. Diastolic blood pressure (mm Hg)
+           0(  0 %)    4 4. Triceps skin fold thickness (mm)
+           9( 90 %)    5 5. 2-Hour serum insulin (mu U/ml)
+          10(100 %)    6 6. Body mass index (weight in kg/(height in m)^2)
+           7( 70 %)    7 7. Diabetes pedigree function
+          10(100 %)    8 8. Age (years)
+
