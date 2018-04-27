@@ -22,6 +22,8 @@ or you can compile manually using:
 java -d bin/ src/*java
 ```
 
+#### Usage
+
 The usage of the program is as follows.
 ```
 java -cp bin/ MyClassifier <the training file> <the testing file> <classifier>
@@ -31,7 +33,7 @@ java -cp bin/ MyClassifier <the training file> <the testing file> <classifier>
 
 This directory contains the origin .names and .data file as well as the assignment PDF found on canvas. It may also contain other files as a result of the work done on WEKA.
 
-### CVS-PASTA READY
+### CSV-PASTA READY
 
 This directory contains the 3 required .csv files required for the PASTA test cases. These .csv files do not have a header in them.
 
@@ -43,6 +45,6 @@ pima-CFS.csv
 pima-folds.csv
 ```
 
-### CVS-WEKA FRIENDLY
+### CSV-WEKA FRIENDLY
 
 This directory contains various .csv that have headers and possibly .arff files. This makes the ready to be open by WEKA for data processing.
