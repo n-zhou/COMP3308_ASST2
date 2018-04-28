@@ -47,4 +47,4 @@ pima-folds.csv
 
 ### CSV-WEKA FRIENDLY
 
-This directory contains various .csv that have headers and possibly .arff files. This makes the ready to be open by WEKA for data processing.
+This directory contains various .csv that have headers and possibly .arff files. This makes them ready to be open by WEKA for data processing.
