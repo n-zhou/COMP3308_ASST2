@@ -73,6 +73,9 @@ public class KNN {
         @SuppressWarnings("unchecked") ArrayList<Data> nearestNeighbours = (ArrayList) data.clone();
         nearestNeighbours.sort(new Comparator<Data>() {
 
+            /**
+             * Comparator used to find the nearest neighbours.
+             */
             public int compare(Data d1, Data d2) {
                 double v1 = 0;
                 double v2 = 0;
@@ -80,9 +83,7 @@ public class KNN {
                     v1 += Math.pow(d1.getValue(i) - v[i], 2);
                     v2 += Math.pow(d2.getValue(i) - v[i], 2);
                 }
-                Math.sqrt(v1);
-                Math.sqrt(v2);
-                return (v1 <= v2) ? -1 : 1;
+                return (Math.sqrt(v1) <= Math.sqrt(v2)) ? -1 : 1;
             }
 
         });

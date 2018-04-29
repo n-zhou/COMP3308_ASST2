@@ -27,6 +27,12 @@ public class MyClassifier {
         nb.run(test);
     }
 
+    /**
+     * The magic of kNN happens here.
+     * @param train filename of the training file.
+     * @param test  filename of the testing file.
+     * @param k     number of neighbours we are searching
+     */
     private static void KNN(String train, String test, int k) {
         KNN knn = new KNN(k);
         knn.train(train);

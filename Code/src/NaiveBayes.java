@@ -57,7 +57,6 @@ public class NaiveBayes {
     /**
      * Finds the mean of a given attribute and certain outcome.
      * @param  index   index of the attribute we want to find the mean of.
-     * The values must be between [0, 7]
      * @param  outcome true for class yes, false for class no.
      * @return         returns the mean calculated.
      */
@@ -78,7 +77,6 @@ public class NaiveBayes {
      * This method is used to find the standard deviation of a particular attribute,
      * given an outcome.
      * @param  index   index of the attribute we want to find the standard deviation of.
-     * The values must be between [0, 7].
      * @param  outcome true for class yes, false for class no.
      * @return         returns the standard deviation calculated.
      */
