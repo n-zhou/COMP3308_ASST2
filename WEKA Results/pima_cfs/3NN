@@ -1,0 +1,47 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.lazy.IBk -K 10 -W 0 -A "weka.core.neighboursearch.LinearNNSearch -A \"weka.core.EuclideanDistance -R first-last\""
+Relation:     pima-CFS
+Instances:    768
+Attributes:   6
+              glucose
+              insulin
+              BMI
+              pedigree
+              age
+              class
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+IB1 instance-based classifier
+using 10 nearest neighbour(s) for classification
+
+
+Time taken to build model: 0 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         595               77.474  %
+Incorrectly Classified Instances       173               22.526  %
+Kappa statistic                          0.5055
+Mean absolute error                      0.304 
+Root mean squared error                  0.4005
+Relative absolute error                 66.8776 %
+Root relative squared error             84.0212 %
+Total Number of Instances              768     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.683    0.176    0.675      0.683    0.679      0.506    0.824     0.687     yes
+                 0.824    0.317    0.829      0.824    0.826      0.506    0.824     0.879     no
+Weighted Avg.    0.775    0.268    0.775      0.775    0.775      0.506    0.824     0.812     
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 183  85 |   a = yes
+  88 412 |   b = no
+
