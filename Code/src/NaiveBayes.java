@@ -35,15 +35,11 @@ public class NaiveBayes {
             while (sc.hasNextLine()) {
                 String line = sc.nextLine();
                 String[] split = line.split(",");
-                data.add(new Data(new double[] {Double.parseDouble(split[0]),
-                                    Double.parseDouble(split[1]),
-                                    Double.parseDouble(split[2]),
-                                    Double.parseDouble(split[3]),
-                                    Double.parseDouble(split[4]),
-                                    Double.parseDouble(split[5]),
-                                    Double.parseDouble(split[6]),
-                                    Double.parseDouble(split[7])},
-                                    split[8].equals("yes")));
+                double[] values = new double[split.length - 1];
+                for (int i = 0; i < values.length; ++i) {
+                    values[i] = Double.parseDouble(split[i]);
+                }
+                data.add(new Data(values, split[split.length - 1].equals("yes")));
             }
             sc.close();
             for (Data d : data) {
@@ -110,13 +106,13 @@ public class NaiveBayes {
             Scanner sc = new Scanner(new File(test));
             while (sc.hasNextLine()) {
                 String[] split = sc.nextLine().split(",");
-                double[] v = new double[8];
-                for (int i = 0; i < 8; ++i) {
+                double[] v = new double[split.length];
+                for (int i = 0; i < v.length; ++i) {
                     v[i] = Double.parseDouble(split[i]);
                 }
                 double pYes = p_yes;
                 double pNo = p_no;
-                for (int i = 0; i < 8; i++) {
+                for (int i = 0; i < v.length; i++) {
                     pYes *= pdf(v[i], getMean(i, true), getStdDeviation(i, true));
                     pNo *= pdf(v[i], getMean(i, false), getStdDeviation(i, false));
                 }
@@ -159,7 +155,6 @@ public class NaiveBayes {
     /**
      * calculates the standard deviation of the given index.
      * @param  index The index of values for which we want to find the standard deviation.
-     * must be between [0, 7]. Otherwise undefined behaviour results.
      * Undefined behaviour results if the index is not valid.
      * @return       returns the standard deviation for the index we desire.
      */

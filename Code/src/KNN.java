@@ -29,15 +29,11 @@ public class KNN {
             while (sc.hasNextLine()) {
                 String line = sc.nextLine();
                 String[] split = line.split(",");
-                data.add(new Data(new double[] {Double.parseDouble(split[0]),
-                                    Double.parseDouble(split[1]),
-                                    Double.parseDouble(split[2]),
-                                    Double.parseDouble(split[3]),
-                                    Double.parseDouble(split[4]),
-                                    Double.parseDouble(split[5]),
-                                    Double.parseDouble(split[6]),
-                                    Double.parseDouble(split[7])},
-                                    split[8].equals("yes")));
+                double[] values = new double[split.length - 1];
+                for (int i = 0; i < values.length; ++i) {
+                    values[i] = Double.parseDouble(split[i]);
+                }
+                data.add(new Data(values, split[split.length - 1].equals("yes")));
             }
             sc.close();
         } catch (IOException e) {
@@ -55,8 +51,8 @@ public class KNN {
             Scanner sc = new Scanner(new File(test));
             while (sc.hasNextLine()) {
                 String[] split = sc.nextLine().split(",");
-                double[] v = new double[8];
-                for (int i = 0; i < 8; ++i) {
+                double[] v = new double[split.length];
+                for (int i = 0; i < v.length; ++i) {
                     v[i] = Double.parseDouble(split[i]);
                 }
                 System.out.println(find(v));
@@ -80,7 +76,7 @@ public class KNN {
             public int compare(Data d1, Data d2) {
                 double v1 = 0;
                 double v2 = 0;
-                for (int i = 0; i < 8; ++i) {
+                for (int i = 0; i < d1.getValues().length; ++i) {
                     v1 += Math.pow(d1.getValue(i) - v[i], 2);
                     v2 += Math.pow(d2.getValue(i) - v[i], 2);
                 }
@@ -92,7 +88,7 @@ public class KNN {
         });
         int no_of_yes = 0;
         int no_of_no = 0;
-        for(int i = 0; i < k && k < data.size(); ++i) {
+        for(int i = 0; (i < k) && (k < data.size()); ++i) {
             if (nearestNeighbours.get(i).class_()) {
                 ++no_of_yes;
             } else {
