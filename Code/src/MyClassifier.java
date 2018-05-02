@@ -51,7 +51,7 @@ public class MyClassifier {
     *
     */
     public static void main(String[] args) {
-        if (args.length == 2) { //run 10 fold cross
+        if (args.length == 2) { //run 10 fold cross validation
             CrossValidator cv = new CrossValidator(args[1]);
             cv.train(args[0]);
             cv.crossValidate();

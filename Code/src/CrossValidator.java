@@ -137,7 +137,7 @@ public class CrossValidator {
             }
             //resets System output
             System.setOut(stdOut);
-            printResults(work);
+            //printResults(work);
         } catch (IOException e) {
 
         }
