@@ -19,7 +19,7 @@ public class CrossValidator {
     HashMap<String, String> pair;
     LinkedList<String> all;
     LinkedList<LinkedList<String>> folds;
-
+    int attributes;
 
 
     /**
@@ -50,6 +50,7 @@ public class CrossValidator {
             while (sc.hasNextLine()) {
                 String line = sc.nextLine();
                 String[] split = line.split(",");
+                attributes = split.length - 1;
                 pair.put(keyThis(split), split[split.length - 1]);
                 all.add(line);
             }
@@ -137,7 +138,7 @@ public class CrossValidator {
             }
             //resets System output
             System.setOut(stdOut);
-            //printResults(work);
+            printResults(work);
         } catch (IOException e) {
 
         }
@@ -166,24 +167,49 @@ public class CrossValidator {
             int correct = 0;
             int yesPredicted = 0;
             int noPredicted = 0;
+            int truePositive = 0;
+            int trueNegative = 0;
+            int falsePositive = 0;
+            int falseNegative = 0;
+
             for (int i = 0; i < N_FOLDS; ++i) {
                 for (String s : folds.get(i)) {
                     String[] split = s.split(",");
                     String line = sc.nextLine();
                     if (line.equals(pair.get(keyThis(split)))) {
                         ++correct;
+                        if (line.equals("yes")) {
+                            ++yesPredicted;
+                            ++truePositive;
+                        } else {
+                            ++noPredicted;
+                            ++trueNegative;
+                        }
+                        continue;
                     }
+                    //false pos or neg
                     if (line.equals("yes")) {
                         ++yesPredicted;
+                        ++falsePositive;
                     } else {
                         ++noPredicted;
+                        ++falseNegative;
                     }
+
                 }
 
             }
+            System.out.printf("Classifier: %s\n", classifier);
+            System.out.printf("Attributes: %d\n", attributes);
             System.out.printf("Yes Predicted: %d\n", yesPredicted);
             System.out.printf("No Predicted: %d\n", noPredicted);
             System.out.printf("Correctly Predicted: %.4f%%\n", (double) (correct*100) / 768);
+            System.out.println("Confusion Matrix:");
+            System.out.printf("\t\t\tPredicted: No\tPredicted: Yes\n");
+            System.out.printf("\tActual: No\t\t%d\t\t%d\t\t%d\n", trueNegative, falsePositive, trueNegative + falsePositive);
+            System.out.printf("\tActual: Yes\t\t%d\t\t%d\t\t%d\n", falseNegative, truePositive, falseNegative + truePositive);
+            System.out.printf("\t\t\t\t%d\t\t%d\t\t%d\n", trueNegative + falseNegative, falsePositive+truePositive,
+                                (trueNegative + falsePositive) + (falseNegative + truePositive));
         } catch (IOException e) {
             e.printStackTrace();
         }

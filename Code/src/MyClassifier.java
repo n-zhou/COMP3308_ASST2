@@ -57,7 +57,7 @@ public class MyClassifier {
             cv.crossValidate();
             //comment or uncomment the line below depending on whether you want
             //the pima-folds.csv file created
-            cv.writeToFile();
+            //cv.writeToFile();
         } else if (args.length == 3) {
             switch (args[2]) {
                 case "NB":
