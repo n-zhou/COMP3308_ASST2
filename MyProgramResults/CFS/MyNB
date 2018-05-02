@@ -1,0 +1,10 @@
+Classifier: NB
+Attributes: 5
+Yes Predicted: 219
+No Predicted: 549
+Correctly Predicted: 76.1719%
+Confusion Matrix:
+			Predicted: No	Predicted: Yes
+	Actual: No		433		67		500
+	Actual: Yes		116		152		268
+				549		219		768

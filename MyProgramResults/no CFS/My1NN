@@ -1,0 +1,10 @@
+Classifier: 1NN
+Attributes: 8
+Yes Predicted: 270
+No Predicted: 498
+Correctly Predicted: 68.7500%
+Confusion Matrix:
+			Predicted: No	Predicted: Yes
+	Actual: No		379		121		500
+	Actual: Yes		119		149		268
+				498		270		768
