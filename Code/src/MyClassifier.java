@@ -40,20 +40,33 @@ public class MyClassifier {
     }
 
     /**
-    * The main function reads in the arguments of from the command line.
-    * @param args There are 3 arguments expected. args[0] is the training file, args[1] is the test file args[2] is the algorithm to be run.
+    * The main function reads in the arguments of from the command line. The
+    * program normally expects 3 arguments to be provided. If there are only 2
+    * arguments provided then the program will perform 10 fold stratified cross
+    * validation.
+    * @param args There are 3 arguments expected. args[0] is the training file,
+    * args[1] is the test file args[2] is the algorithm to be run. If only 2
+    * arguments are provided, the program will perform 10 fold stratified cross
+    * validation on the first argument.
     *
     */
     public static void main(String[] args) {
-        if(args.length != 3)
-            return;
-        switch (args[2]) {
-            case "NB":
-                NaiveBayes(args[0], args[1]);
-                break;
-            default:
-                int k = args[2].charAt(0) - '0';
-                KNN(args[0], args[1], k);
+        if (args.length == 2) { //run 10 fold cross
+            CrossValidator cv = new CrossValidator(args[1]);
+            cv.train(args[0]);
+            cv.crossValidate();
+            //comment or uncomment the line below depending on whether you want
+            //the pima-folds.csv file created
+            cv.writeToFile();
+        } else if (args.length == 3) {
+            switch (args[2]) {
+                case "NB":
+                    NaiveBayes(args[0], args[1]);
+                    break;
+                default:
+                    int k = args[2].charAt(0) - '0';
+                    KNN(args[0], args[1], k);
+            }
         }
     }
 

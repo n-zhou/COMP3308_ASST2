@@ -119,6 +119,7 @@ public class NaiveBayes {
             sc.close();
         } catch (IOException e) {
             //we shouldn't get an exception so the code should never reach this block
+            e.printStackTrace();
         }
     }
 

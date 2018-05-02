@@ -1,3 +1,8 @@
+/**
+ * @author nzho8446
+ * This code is deprecated. Please do not use this code.
+ */
+
 import java.io.File;
 import java.io.PrintWriter;
 import java.io.IOException;
